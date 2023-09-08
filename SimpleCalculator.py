@@ -1,3 +1,5 @@
+#Simple caluculator using Tkinter
+
 from tkinter import *
 
 
@@ -38,6 +40,9 @@ def button_equal():
     
     if math == "divide":
         e.insert(0, f_num / int(second_number))
+    
+    if math == "reminder":
+        e.insert(0, f_num % int(second_number))
 
 def button_sub():
     first_number = e.get()
@@ -63,6 +68,17 @@ def button_div():
     f_num = int(first_number)
     e.delete(0,END)
 
+def button_rem():
+    first_number = e.get()
+    global f_num
+    global math 
+    math = "reminder"
+    f_num = int(first_number)
+    e.delete(0,END)
+
+def button_sqrt():
+    return
+
 
 button_1 = Button(root, text="1", padx=40, pady=20,command=lambda:button_click(1))
 button_2 = Button(root, text="2", padx=40, pady=20,command=lambda:button_click(2))
@@ -73,14 +89,16 @@ button_6 = Button(root, text="6", padx=40, pady=20,command=lambda:button_click(6
 button_7 = Button(root, text="7", padx=40, pady=20,command=lambda:button_click(7))
 button_8 = Button(root, text="8", padx=40, pady=20,command=lambda:button_click(8))
 button_9 = Button(root, text="9", padx=40, pady=20,command=lambda:button_click(9))
-button_0 = Button(root, text="0", padx=39, pady=20,command=lambda:button_click(0))
-button_add = Button(root, text="+", padx=38, pady=20,command=button_add)
-button_equal = Button(root, text="=", padx=100, pady=20,command=button_equal)
-button_clear = Button(root, text="Clear",padx=90, pady=20,command=button_clear)
+button_0 = Button(root, text="0", padx=40, pady=20,command=lambda:button_click(0))
+button_add = Button(root, text="+", padx=40, pady=20,command=button_add)
+button_equal = Button(root, text="=", padx=39, pady=20,command=button_equal)
+button_sqrt = Button(root, text="sqrt", padx=31, pady=20,command=button_sqrt)
+button_clear = Button(root, text="Clear",padx=30, pady=20,command=button_clear)
 
 button_sub = Button(root, text="-", padx=40, pady=20,command=button_sub)
 button_mul = Button(root, text="*", padx=40, pady=20,command=button_mul)
 button_div = Button(root, text="/", padx=40, pady=20,command=button_div)
+button_rem = Button(root, text="%", padx=40, pady=20,command=button_rem)
 
 button_1.grid(row=3,column=0)
 button_2.grid(row=3,column=1)
@@ -95,13 +113,19 @@ button_8.grid(row=1,column=1)
 button_9.grid(row=1,column=2)
 
 button_0.grid(row=4,column=0)
-button_clear.grid(row=4,column=1,columnspan=4)
-button_add.grid(row=5, column=0)
-button_equal.grid(row=5,column=1,columnspan=4)
+button_add.grid(row=4, column=1)
+button_sub.grid(row=4, column=2)
 
-button_sub.grid(row=6, column=0)
-button_mul.grid(row=6, column=1)
-button_div.grid(row=6, column=2)
+button_rem.grid(row=5, column=0)
+button_mul.grid(row=5, column=1)
+button_div.grid(row=5, column=2)
+
+
+button_clear.grid(row=6,column=0)
+button_sqrt.grid(row=6,column=1)
+button_equal.grid(row=6,column=2)
+
+
 
 
 root.mainloop()
