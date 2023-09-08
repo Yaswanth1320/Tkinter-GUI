@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import ImageTk,Image
 
 root = Tk()
-root.title("Hello world")
+root.title("Image slider")
 root.iconbitmap('icon.ico')
 
 my_image1 = ImageTk.PhotoImage(Image.open('./images/luffy.jpeg'))
