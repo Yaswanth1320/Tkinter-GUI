@@ -12,8 +12,6 @@ def open():
     label = Label(new, image=my_image).pack()
     btn =Button(new, text="Exit window", command=new.destroy).pack()
     
-
-
 button = Button(root, text="Open new window", command=open).pack()
 
 
