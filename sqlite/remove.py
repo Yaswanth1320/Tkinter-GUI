@@ -16,6 +16,25 @@ root.geometry("400x400")
 
 #creating submit function
 
+#Functio to delete a record
+
+def delete():
+    #Creating a database
+    conn = sqlite3.connect("book.db")
+
+    #Create a cursor
+    cursor = conn.cursor()
+
+    #query for deleting command
+    cursor.execute("DELETE from book_table WHERE oid= " + delete_box.get())
+
+    #commit changes
+    conn.commit()
+
+    #Close connection
+    conn.close()
+    
+
 def submit():
     #Creating a database
     conn = sqlite3.connect("book.db")
@@ -62,7 +81,7 @@ def display():
         print_record += str(record) + "\n"
 
     record_label = Label(root, text=print_record)
-    record_label.grid(row=6, column=0, columnspan=2)
+    record_label.grid(row=9, column=0, columnspan=2)
 
     #commit changes
     conn.commit()
@@ -83,6 +102,10 @@ zipcode.grid(row=2, column=1)
 price = Entry(root, width=30)
 price.grid(row=3, column=1)
 
+delete_box = Entry(root, width=30)
+delete_box.grid(row=6,column=1)
+
+
 #Creating labels for text boxes
 name_label = Label(root, text="name")
 name_label.grid(row=0, column=0)
@@ -93,6 +116,9 @@ zipcode_label.grid(row=2, column=0)
 price_label = Label(root, text="price")
 price_label.grid(row=3, column=0)
 
+delete_label = Label(root, text="ID number")
+delete_label.grid(row=6, column=0)
+
 #Submit button
 submit = Button(root, text="Insert data", command=submit)
 submit.grid(row=4, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
@@ -101,6 +127,9 @@ submit.grid(row=4, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
 
 show_records = Button(root, text="show records", command=display)
-show_records.grid(row=5, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
+show_records.grid(row=5, column=0, columnspan=2, pady=10, padx=10, ipadx=92)
+
+delete_records = Button(root, text="Delete records", command=delete)
+delete_records.grid(row=8, column=0, columnspan=2, pady=10, padx=10, ipadx=87)
 
 root.mainloop()
