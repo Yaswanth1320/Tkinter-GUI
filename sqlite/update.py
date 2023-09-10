@@ -14,8 +14,6 @@ root.geometry("400x500")
 #              price integer)
 #              """)
 
-#creating submit function
-
 #Function to delete a record
 
 def change():
