@@ -44,7 +44,28 @@ def submit():
     zipcode.delete(0,END)
     price.delete(0,END)
 
-    
+#creating display function
+
+def display():
+    #Creating a database
+    conn = sqlite3.connect("book.db")
+
+    #Create a cursor
+    cursor = conn.cursor() 
+
+    #query to fetech data
+    conn.execute("SELECT *,oid FROM book_table")
+    record= cursor.fetchall()
+    print(record)
+
+    #commit changes
+    conn.commit()
+
+    #Close connection
+    conn.close()
+
+
+
 
 #Creating text boxes
 name = Entry(root, width=30)
@@ -70,5 +91,10 @@ price_label.grid(row=3, column=0)
 submit = Button(root, text="Insert data", command=submit)
 submit.grid(row=4, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
+#Button to display records
+
+
+show_records = Button(root, text="show records", command=display)
+show_records.grid(row=5, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
 root.mainloop()
