@@ -1,7 +1,6 @@
 #Simple caluculator using Tkinter
 
 from tkinter import *
-from PIL import ImageTk,Image
 
 root = Tk()
 root.title("Simple caluculator")
