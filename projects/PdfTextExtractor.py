@@ -1,5 +1,5 @@
 import tkinter
-import PyPDf2
+import PyPDF2
 from tkinter import filedialog
 
 def openfile():
@@ -9,7 +9,7 @@ def openfile():
     
     filename_label.configure(text=filename)
     extractor_text.delete("1.0", tkinter.END)
-    reader = PyPDf2.PdfReader(filename)
+    reader = PyPDF2.PdfReader(filename)
     for i in range(reader.numPages):
             current_text = reader.getPage(i).extractText()
             extractor_text.insert(tkinter.END, current_text)
