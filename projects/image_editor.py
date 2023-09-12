@@ -53,7 +53,7 @@ def apply_filter(filter):
 
 def add_image():
     global filename
-    filename = filedialog.askopenfilename(initialdir="/Users/yaswanth/Python:Tkinter/projects")
+    filename = filedialog.askopenfilename(initialdir="/Users/yaswanth/Python:Tkinter/projects/images")
 
     image = Image.open(filename)
     width, height = int(image.width / 2), int(image.height / 2)

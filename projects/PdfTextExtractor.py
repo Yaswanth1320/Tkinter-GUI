@@ -4,7 +4,7 @@ from tkinter import filedialog
 
 def openfile():
     filename = filedialog.askopenfilename(title="Open Pdf file",
-                                          initialdir="/Users/yaswanth/Python:Tkinter/projects",
+                                          initialdir="/Users/yaswanth/Python:Tkinter/projects/files",
                                           filetypes=[('Pdf files', '*.pdf')])
     
     filename_label.configure(text=filename)
